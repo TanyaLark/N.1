@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИНН 3 вариант</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script defer src="./main.js"></script>
+</head>
+<body>
+    <div class="container" id="app">
+
+         <h3 class="mt-5" >Расшифровка ИНН (идентификационного номера)</h3>
+    
+        <div class="input-group my-3">
+            <input v-model='InnCode' type="number" class="form-control" placeholder="Введите ваш ИНН код, всего 10 цифр" min="0" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button  @click=" parseINN" class="btn btn-secondary" type="button" id="button-addon2">Расшифровать</button>
+        </div>
+
+         <div v-if="validation == false" class="alert alert-danger" role="alert">
+            Ошибка! Введите 10 цифр  
+        </div>
+
+        <div v-else>
+            <div v-if=" info !== '' ">
+
+                <h3>Идентификационный код: <span>{{info.code}}</span> </h3>
+                <h3>Проверка подлинности: <span>{{info.isCorrect}}</span></h3>
+                <h3 v-if=" info.isCorrect == 'Корректен' ">Пол: <span>{{info.sex}}</span> </h3>
+                <h3 v-if=" info.isCorrect == 'Корректен' ">Дата рождения: <span> {{info.dateOfBirth}}</span></h3>
+                <h3 v-if=" info.isCorrect == 'Корректен' ">Возраст: <span>{{info.fullYears}}</span></h3>
+                <h3 v-if=" info.isCorrect == 'Корректен' ">Знак зодиака: <span>{{info.zodiac}}</span></h3>
+                <h3 v-if=" info.isCorrect == 'Корректен' ">Символ года рождения по восточному календарю : <span>{{info.chineseCalendar}}</span> </h3>
+                
+            </div>
+        </div>
+  
+    </div>
+   
+</body>
+</html>

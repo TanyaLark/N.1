@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    background-image: url('./Img/Backgraund_green.png'); 
+    background-size: cover;
+    background-color:lightgreen;
+    font-family: 'Raleway', sans-serif;
+}
+
+.container{
+    height: 100vh;    
+}
+
+h3{
+    color: white;
+    font-family: 'Raleway';
+    font-style: italic;
+    font-weight: 400;
+}
+
+span{
+    color: blue;
+    font-style: normal;
+}
